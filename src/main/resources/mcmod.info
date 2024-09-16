@@ -1,14 +1,12 @@
 [
   {
-    "modid": "sbclient",
-    "name": "Skyblock Client",
-    "description": "The best skyblock mod.",
+    "modid": "offsetclient",
+    "name": "OffsetClient",
+    "description": "SB Client but less.",
     "version": "${version}",
-    "mcversion": "${mcversion}",
-    "url": "https://github.com/Harry282/Skyblock-Client",
-    "updateUrl": "https://github.com/Harry282/Skyblock-Client/releases",
+    "mcversion": "${mcversion}""
     "authorList": [
-      "Harry282"
+      "Offset"
     ]
   }
 ]

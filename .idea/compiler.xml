@@ -13,7 +13,21 @@
         </processorPath>
         <module name="SkyblockClient.main" />
       </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <option name="defaultObfuscationEnv" value="named:intermediary" />
+        <option name="inMapFileNamedIntermediary" value="C:\Users\alexg\.gradle\caches\essential-loom\1.8.9\de.oceanlabs.mcp.mcp_stable.1_8_9.22-1.8.9-forge-1.8.9-11.15.1.2318-1.8.9\mappings-mixin-srg.tiny" />
+        <option name="outMapFileNamedIntermediary" value="C:\Users\alexg\IdeaProjects\OffsetClient\build\loom-cache\mixin-map-de.oceanlabs.mcp.mcp_stable.1_8_9.22-1.8.9-forge-1.8.9-11.15.1.2318-1.8.9.1.tiny" />
+        <option name="outRefMapFile" value="C:\Users\alexg\IdeaProjects\OffsetClient\build\classes\java\main\mixins.offsetclient.refmap.json" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/6d1c8bf4c28e697f472a83bd6add76ec4951734/mixin-0.8.5-processor.jar" />
+        </processorPath>
+        <module name="OffsetClient.main" />
+      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="skyblockclient.SkyblockClient.main" target="8" />
+      <module name="skyblockclient.SkyblockClient.test" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
