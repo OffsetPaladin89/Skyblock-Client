@@ -17,33 +17,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
 
     @Property(
         type = PropertyType.SWITCH,
-        name = "Blood Ready Notify",
-        description = "Notification when the watcher has finished spawning mobs.",
-        category = "Dungeons",
-        subcategory = "General"
-    )
-    var bloodReadyNotify = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Mimic Killed Message",
-        description = "Sends a message in party chat when mimic is killed.",
-        category = "Dungeons",
-        subcategory = "General"
-    )
-    var mimicKillMessage = false
-
-    @Property(
-        type = PropertyType.TEXT,
-        name = "Mimic Message",
-        description = "Message sent when mimic is detected to be killed. /sbclient mimicmessage to change.",
-        category = "Dungeons",
-        subcategory = "General"
-    )
-    var mimicMessage = "Mimic killed!"
-
-    @Property(
-        type = PropertyType.SWITCH,
         name = "Auto Show Extra Stats",
         category = "Dungeons",
         subcategory = "General"
@@ -94,76 +67,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
 
     @Property(
         type = PropertyType.SWITCH,
-        name = "Secret Aura",
-        category = "Dungeons",
-        subcategory = "Secret Aura"
-    )
-    var secretAura = false
-
-    @Property(
-        type = PropertyType.DECIMAL_SLIDER,
-        name = "Chest Range",
-        category = "Dungeons",
-        subcategory = "Secret Aura",
-        maxF = 6f
-    )
-    var chestRange = 5.8f
-
-    @Property(
-        type = PropertyType.DECIMAL_SLIDER,
-        name = "Wither Essence Range",
-        category = "Dungeons",
-        subcategory = "Secret Aura",
-        maxF = 5f
-    )
-    var witherEssenceRange = 4.8f
-
-    @Property(
-        type = PropertyType.TEXT,
-        name = "Aura Item Name",
-        category = "Dungeons",
-        subcategory = "Secret Aura"
-    )
-    var secretAuraItem = "Pickaxe"
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Disable in Boss",
-        category = "Dungeons",
-        subcategory = "Secret Aura"
-    )
-    var secretAuraDisableInBoss = false
-
-    @Property(
-        type = PropertyType.SELECTOR,
-        name = "Arrow Align Solver",
-        category = "Dungeons",
-        subcategory = "F7",
-        description = "Block Clicks: Blocks extra clicks\nOne Click: Right click an item frame to instantly complete it\nAuto: Look at an item frame to instantly complete it",
-        options = ["Off", "Block Clicks", "One Click", "Auto"]
-    )
-    var arrowAlignSolver = 0
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Arrow Align Sneak Override",
-        description = "Hold crouch to override arrow align solver.",
-        category = "Dungeons",
-        subcategory = "F7"
-    )
-    var arrowAlignSneakOverride = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Full Size Simon Says Buttons",
-        description = "Clicking on the obsidian behind the buttons will also register as a click.",
-        category = "Dungeons",
-        subcategory = "F7"
-    )
-    var simonSaysButtons = false
-
-    @Property(
-        type = PropertyType.SWITCH,
         name = "F7 Ghost Block",
         description = "Automatically creates ghost blocks to go to P3 from P2 on F7.",
         category = "Dungeons",
@@ -179,14 +82,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
         subcategory = "F7"
     )
     var m7p5Ghost = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Livid Finder",
-        category = "Dungeons",
-        subcategory = "Render"
-    )
-    var lividFinder = false
 
     @Property(
         type = PropertyType.SWITCH,
@@ -211,116 +106,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
         subcategory = "Render"
     )
     var showStealthy = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Auto Terminals",
-        description = "No auto terminals will work with this off.",
-        category = "Terminals",
-        subcategory = "Auto"
-    )
-    var terminalAuto = false
-
-    @Property(
-        type = PropertyType.NUMBER,
-        name = "Terminal Click Delay",
-        description = "Time in ms between automatic terminal clicks.",
-        category = "Terminals",
-        subcategory = "Auto",
-        increment = 10,
-        min = 10,
-        max = 1000
-    )
-    var terminalClickDelay = 200
-
-    @Property(
-        type = PropertyType.NUMBER,
-        name = "Terminal Fix Time",
-        description = "How often to attempt to fix terminals while using pingless.",
-        category = "Terminals",
-        subcategory = "Auto",
-        min = 0,
-        max = 10
-    )
-    var terminalFix = 2
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Pingless Clicks",
-        description = "Sends clicks before terminal GUI is updated. Not recommended on lower ping.",
-        category = "Terminals",
-        subcategory = "Clicks"
-    )
-    var terminalPingless = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Block Incorrect Clicks",
-        category = "Terminals",
-        subcategory = "Clicks"
-    )
-    var terminalBlockClicks = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Middle Clicks",
-        category = "Terminals",
-        subcategory = "Clicks"
-    )
-    var terminalMiddleClick = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Hide Tooltips",
-        category = "Terminals",
-        subcategory = "Clicks"
-    )
-    var terminalHideTooltip = false
-
-    @Property(
-        type = PropertyType.CHECKBOX,
-        name = "Terminal Highlight",
-        description = "Highlight needed clicks in terminals",
-        category = "Terminals",
-        subcategory = "Highlight"
-    )
-    var terminalHighlight = false
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Terminal Highlight Color",
-        description = "Default #55FF55AA.",
-        category = "Terminals",
-        subcategory = "Highlight"
-    )
-    var terminalColorHighlight = Color(85, 255, 85, 170)
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Terminal First Number Color",
-        description = "Default #55FFFFFF.",
-        category = "Terminals",
-        subcategory = "Highlight"
-    )
-    var terminalColorNumberFirst = Color(85, 255, 255, 255)
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Terminal Second Number Color",
-        description = "Default #55FFFFAA.",
-        category = "Terminals",
-        subcategory = "Highlight"
-    )
-    var terminalColorNumberSecond = Color(85, 255, 255, 170)
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Terminal Third Number Color",
-        description = "Default #55FFFF55.",
-        category = "Terminals",
-        subcategory = "Highlight"
-    )
-    var terminalColorNumberThird = Color(85, 255, 255, 85)
 
     @Property(
         type = PropertyType.SWITCH,
@@ -350,66 +135,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
         subcategory = "Auto"
     )
     var experimentAutoExit = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Block Incorrect Clicks",
-        category = "Experiment",
-        subcategory = "Clicks"
-    )
-    var experimentBlockClicks = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Middle Clicks",
-        category = "Experiment",
-        subcategory = "Clicks"
-    )
-    var experimentMiddleClick = false
-
-    @Property(
-        type = PropertyType.CHECKBOX,
-        name = "Hide Tooltips",
-        category = "Experiment",
-        subcategory = "Highlight"
-    )
-    var experimentHideTooltips = false
-
-    @Property(
-        type = PropertyType.CHECKBOX,
-        name = "Experiment Highlight",
-        description = "Highlights next clicks for experiments.",
-        category = "Experiment",
-        subcategory = "Highlight"
-    )
-    var experimentHighlight = false
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Experiment First Click Color",
-        description = "Default #55FFFFFF.",
-        category = "Experiment",
-        subcategory = "Highlight"
-    )
-    var experimentColorNumberFirst = Color(85, 255, 255, 255)
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Experiment Second Click Color",
-        description = "Default #55FFFFAA.",
-        category = "Experiment",
-        subcategory = "Highlight"
-    )
-    var experimentColorNumberSecond = Color(85, 255, 255, 170)
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Experiment Third Click Color",
-        description = "Default #55FFFF55.",
-        category = "Experiment",
-        subcategory = "Highlight"
-    )
-    var experimentColorNumberThird = Color(85, 255, 255, 85)
 
     @Property(
         type = PropertyType.SELECTOR,
@@ -505,16 +230,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
         subcategory = "Dungeon ESP"
     )
     var removeStarMobsNametag = false
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Livid Color",
-        description = "Default #55FFFF.",
-        category = "ESP Colors",
-        subcategory = "Dungeon ESP Colors",
-        allowAlpha = false
-    )
-    var espColorLivid = Color(85, 255, 255)
 
     @Property(
         type = PropertyType.COLOR,
@@ -633,53 +348,6 @@ object Config : Vigilant(File("./config/sbclient/config.toml"), "SkyblockClient"
         subcategory = "Inventory"
     )
     var hidePotionEffects = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Highlight Salvageable Items",
-        category = "GUI",
-        subcategory = "Inventory"
-    )
-    var overlaySalvageable = false
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Salvageable Items Color",
-        description = "Default 55FFFFAA.",
-        category = "GUI",
-        subcategory = "Inventory"
-    )
-    var overlayColorSalvageable = Color(85, 255, 255, 170)
-
-    @Property(
-        type = PropertyType.COLOR,
-        name = "Top Quality Salvageable Items Color",
-        description = "Default 6AFF6AAA.",
-        category = "GUI",
-        subcategory = "Inventory"
-    )
-    var overlayColorTopSalvageable = Color(106, 255, 106, 170)
-
-    @Property(
-        type = PropertyType.BUTTON,
-        name = "Item Macros",
-        category = "Macros",
-        placeholder = "Edit"
-    )
-    fun openItemMacros() {
-        display = ItemMacros()
-    }
-
-    @Property(
-        type = PropertyType.NUMBER,
-        name = "Throw Delay",
-        description = "Time between each bone throw in ms. Default 50.",
-        category = "Macros",
-        subcategory = "Bone Macro",
-        max = 200,
-        increment = 5
-    )
-    var boneThrowDelay = 50
 
     @Property(
         type = PropertyType.NUMBER,

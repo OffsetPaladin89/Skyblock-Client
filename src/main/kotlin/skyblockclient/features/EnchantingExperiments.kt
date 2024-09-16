@@ -88,16 +88,6 @@ object EnchantingExperiments {
                         lastClickTime = System.currentTimeMillis()
                         clicks++
                     }
-                    if (config.experimentHighlight) {
-                        chronomatronOrder.withIndex().forEach { (i, slot) ->
-                            renderText(
-                                if (i == clicks) "${slot.second} §l<" else slot.second,
-                                ScaledResolution(mc).scaledWidth / 2 - 150,
-                                ScaledResolution(mc).scaledHeight / 2 - 150 + i * 15,
-                                1.0
-                            )
-                        }
-                    }
                 }
                 ExperimentType.ULTRASEQUENCER -> {
                     if (invSlots[49].stack?.item == Items.clock) {
@@ -132,78 +122,6 @@ object EnchantingExperiments {
                 }
                 else -> return
             }
-        }
-    }
-
-    @SubscribeEvent
-    fun onSlotClick(event: SlotClickEvent) {
-        if (!inSkyblock || event.gui !is GuiChest || event.slot == null) return
-        val isCorrect = when (currentExperiment) {
-            ExperimentType.CHRONOMATRON -> chronomatronOrder.size > clicks && event.slot?.stack?.displayName == chronomatronOrder[clicks].second
-            ExperimentType.ULTRASEQUENCER -> event.slot?.slotNumber == (ultrasequencerOrder[clicks] ?: return)
-            else -> return
-        }
-        if (isCorrect) {
-            clicks++
-            if (config.experimentMiddleClick) {
-                event.isCanceled = true
-                mc.playerController.windowClick(
-                    mc.thePlayer.openContainer.windowId,
-                    event.slot!!.slotNumber,
-                    2,
-                    3,
-                    mc.thePlayer
-                )
-            }
-        } else {
-            event.isCanceled = config.experimentBlockClicks
-        }
-    }
-
-    @SubscribeEvent
-    fun onDrawSlot(event: GuiContainerEvent.DrawSlotEvent) {
-        if (!config.experimentHighlight || !inSkyblock || event.gui !is GuiChest || event.slot.stack == null) return
-        val x = event.slot.xDisplayPosition
-        val y = event.slot.yDisplayPosition
-        when (currentExperiment) {
-            ExperimentType.CHRONOMATRON -> {
-                (0..2).find {
-                    chronomatronOrder.size > clicks + it && event.slot.stack.displayName == chronomatronOrder[clicks + it].second
-                }?.let { Gui.drawRect(x, y, x + 16, y + 16, getColor(it)) }
-            }
-            ExperimentType.ULTRASEQUENCER -> {
-                if (event.container.inventorySlots[49].stack?.item == Items.clock && event.slot.slotNumber in 9..44) {
-                    event.isCanceled = event.slot.stack.item == Item.getItemFromBlock(Blocks.stained_glass_pane)
-                    (0..2).find {
-                        event.slot.slotNumber == ultrasequencerOrder[clicks + it]
-                    }?.let { Gui.drawRect(x, y, x + 16, y + 16, getColor(it)) }
-                    ultrasequencerOrder.entries.find { event.slot.slotNumber == it.value }?.let {
-                        renderText(
-                            (it.key + 1).toString(),
-                            x + 9 - mc.fontRendererObj.getStringWidth((it.key + 1).toString()) / 2,
-                            y + 4
-                        )
-                    }
-                }
-            }
-            else -> return
-        }
-    }
-
-    @SubscribeEvent
-    fun onTooltip(event: ItemTooltipEvent) {
-        if (!config.experimentHideTooltips || !inSkyblock || event.toolTip == null) return
-        if (currentExperiment == ExperimentType.CHRONOMATRON || currentExperiment == ExperimentType.ULTRASEQUENCER) {
-            event.toolTip.clear()
-        }
-    }
-
-    private fun getColor(index: Int): Int {
-        return when (index) {
-            0 -> config.experimentColorNumberFirst.rgb
-            1 -> config.experimentColorNumberSecond.rgb
-            2 -> config.experimentColorNumberThird.rgb
-            else -> 0xffffff
         }
     }
 

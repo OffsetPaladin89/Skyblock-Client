@@ -4,9 +4,6 @@ import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
 import skyblockclient.SkyblockClient.Companion.config
 import skyblockclient.SkyblockClient.Companion.display
-import skyblockclient.config.Config.mimicMessage
-import skyblockclient.features.CapeManager
-import skyblockclient.utils.Utils.modMessage
 
 class SkyblockClientCommands : CommandBase() {
     override fun getCommandName(): String {
@@ -32,17 +29,6 @@ class SkyblockClientCommands : CommandBase() {
         if (args.isEmpty()) {
             display = config.gui()
             return
-        }
-        when (args[0].lowercase()) {
-            "mimicmessage" -> {
-                args[0] = ""
-                val message = args.joinToString(" ").trim()
-                mimicMessage = message
-                modMessage("§aMimic message changed to §f$message")
-            }
-            "reloadcape" -> {
-                CapeManager.loadCape()
-            }
         }
     }
 }
